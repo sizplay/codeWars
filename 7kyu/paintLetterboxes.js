@@ -34,4 +34,11 @@ const paintLetterboxes = (start, end) =>
           .filter((e) => e == i).length
     );
 
+// second best practice
+const paintLetterboxes = (start, end) =>
+  [...Array(end - start + 1)].reduce(
+    (pre, _, idx) => ([...`${start + idx}`].forEach((val) => pre[val]++), pre),
+    Array(10).fill(0)
+  );
+
 paintLetterboxes(125, 132); //?
